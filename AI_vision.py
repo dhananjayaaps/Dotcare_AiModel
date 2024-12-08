@@ -1,8 +1,3 @@
-import asyncio
-
-import httpx
-import os
-import base64
 import google.generativeai as genai
 from flask import jsonify
 from pinecone import Pinecone
@@ -15,9 +10,9 @@ model = genai.GenerativeModel(model_name="gemini-1.5-pro")
 def askAboutMother(question):
 
     prompt = f"""{question}"""
-    print(prompt)
+    # print(prompt)
 
-    print(prompt)
+    # print(prompt)
     generation_config = {
       "temperature": 1,
       "top_p": 0.95,
@@ -32,6 +27,6 @@ def askAboutMother(question):
     )
     response = model.generate_content(prompt)
 
-    print(response.text)
+    # print(response.text)
 
     return jsonify(response.text.split('|')), 200

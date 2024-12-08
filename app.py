@@ -7,9 +7,9 @@ app = Flask(__name__)
 def ask_about_model():
     try:
         data = request.get_json()
-        print(f"Received data: {data}")
+        # print(f"Received data: {data}")
     except Exception as e:
-        print(f"Error parsing JSON: {e}")
+        # print(f"Error parsing JSON: {e}")
         return jsonify({"success": False, "message": str(e), "data": None}), 400
 
     if not data or not all(key in data for key in ['query']):
